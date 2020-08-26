@@ -1,28 +1,28 @@
 package com.StockMarketCharting.CompanyService.service;
 
-import java.util.Optional;
+import java.lang.reflect.Type;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
 import com.StockMarketCharting.CompanyService.dao.CompanyDao;
 import com.StockMarketCharting.CompanyService.model.Company;
+import com.StockMarketCharting.CompanyService.shared.CompanyResponse;
 
 @Service
 public class CompanyServiceImpl implements CompanyService{
 
 	private CompanyDao companyDao;
-
-	public CompanyServiceImpl(CompanyDao companyDao) {
+	private ModelMapper modelMapper;
+	public CompanyServiceImpl(CompanyDao companyDao, ModelMapper modelMapper) {
 		super();
 		this.companyDao = companyDao;
-	}
-	
-	@Override
-	@Transactional
-	public Iterable<Company> findAllCompany(){
-		return companyDao.findAll();
+		this.modelMapper = modelMapper;
 	}
 
 	@Override
@@ -32,7 +32,14 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 
 	@Override
-	public Optional<Company> findCompanyById(Integer companyId) {
-		return companyDao.findById(companyId);
+	@Transactional
+	public Iterable<CompanyResponse> findAllCompany() {
+		
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		Type listType = new TypeToken<List<CompanyResponse>> () {}.getType();
+		List<CompanyResponse> companyResponse = modelMapper.map(companyDao.findAll(), listType);
+		return companyResponse;
 	}
+		
+	
 }

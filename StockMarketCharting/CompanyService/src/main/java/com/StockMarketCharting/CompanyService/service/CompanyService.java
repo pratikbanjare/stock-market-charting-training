@@ -1,11 +1,9 @@
 package com.StockMarketCharting.CompanyService.service;
 
-import java.util.Optional;
-
 import com.StockMarketCharting.CompanyService.model.Company;
+import com.StockMarketCharting.CompanyService.shared.CompanyResponse;
 
 public interface CompanyService {
-	public Iterable<Company> findAllCompany();
-	public Optional<Company> findCompanyById(Integer companyId);
 	public Company addNewCompany(Company company);
+	public Iterable<CompanyResponse> findAllCompany();
 }

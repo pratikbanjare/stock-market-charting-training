@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -26,10 +28,10 @@ public class Company {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "company_id")
+	@Column(name = "company_id",nullable = false)
 	private Integer companyId;
 	
-	@Column(name = "company_name")
+	@Column(name = "company_name",nullable = false)
 	private String companyName;
 	
 	@Column(name = "turnover")
@@ -41,9 +43,19 @@ public class Company {
 	@Column(name = "writeup")
 	private String writeup;
 	
+	@Column(name = "company_code")
+	private String companyCode;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+	@JoinTable(name = "company_listing",
+		joinColumns = @JoinColumn(name="id"),
+		inverseJoinColumns = @JoinColumn(name= "company_id"))
+	private List<Exchange> exchanges;
+	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "company_id", nullable = true)
 	private List<Director> directors;
 	
+	
+	
 }
-

@@ -7,6 +7,4 @@ import com.StockMarketCharting.CompanyService.model.Company;
 
 @Repository
 public interface CompanyDao extends JpaRepository<Company, Integer>{
-
-	
-}
+ }
