@@ -10,5 +10,6 @@ public interface StockExchangeService {
 	public Optional<StockExchange> findStockExchangeById(Integer stockExchangeId);
 	public Optional<StockExchange> findStockExchangeByName(String stockExchangeName);
 	public StockExchange addStockExchange(StockExchange stockExchange);
+	public String deleteStockExchangeById(Integer exchangeId);
 
 }

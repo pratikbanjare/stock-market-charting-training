@@ -22,12 +22,16 @@ public class StockExchange {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="stock_exchange_id")
 	private Integer stockExchangeId;
+	
 	@Column(name="stock_exchange_name")
 	private String stockExchangeName;
+	
 	@Column(name = "brief")
 	private String brief;
+	
 	@Column(name="address")
 	private String address;
+	
 	@Column(name="remarks")
 	private String remarks;
 

@@ -36,6 +36,15 @@ public class StockExchangeServiceImpl implements StockExchangeService{
 	public StockExchange addStockExchange(StockExchange stockExchange) {
 		return stockExchangeDao.save(stockExchange);
 	}
+
+	@Override
+	public String deleteStockExchangeById(Integer exchangeId) {
+		if (!stockExchangeDao.findById(exchangeId).isPresent())
+			return "No stock Sechange exist with id "+ exchangeId;
+		stockExchangeDao.deleteById(exchangeId);
+		return "Deleted Stock Exchange with id "+exchangeId;
+		
+	}
 	
 
 }
