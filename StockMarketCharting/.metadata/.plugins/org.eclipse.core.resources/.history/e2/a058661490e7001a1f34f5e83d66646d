@@ -1,0 +1,36 @@
+package com.StockMarketCharting.CompanyService;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.StockMarketCharting.CompanyService.model.Director;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class CompanyResponse {
+	
+	private Integer companyId;
+	
+	private String companyName;
+	
+	private Long turnover;
+
+	private String ceo;
+	
+	private String writeup;
+	
+	private String companyCode;
+	
+	private List<Director> directors;
+}

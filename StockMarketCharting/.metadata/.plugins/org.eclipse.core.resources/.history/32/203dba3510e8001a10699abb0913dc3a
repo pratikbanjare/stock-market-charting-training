@@ -1,0 +1,5 @@
+package com.StockMarketCharting.UserService.controller;
+
+public class UserController {
+
+}

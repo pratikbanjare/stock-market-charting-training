@@ -1,0 +1,5 @@
+package com.StockMarketCharting.StockPriceService;
+
+public interface StockPricingDao {
+
+}

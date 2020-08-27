@@ -1,0 +1,5 @@
+package com.StockMarketCharting.CompanyService.service;
+
+public interface CompanyResponseService {
+
+}

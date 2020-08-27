@@ -1,0 +1,5 @@
+package com.StockMarketCharting.StockExchangeService;
+
+public interface StockExchangeService {
+
+}

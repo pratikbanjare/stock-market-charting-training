@@ -6,4 +6,6 @@ import com.StockMarketCharting.CompanyService.shared.CompanyResponse;
 public interface CompanyService {
 	public Company addNewCompany(Company company);
 	public Iterable<CompanyResponse> findAllCompany();
+	public CompanyResponse findByCompanyId(Integer companyId);
+	public CompanyResponse findByCompanyName(String companyName);
 }

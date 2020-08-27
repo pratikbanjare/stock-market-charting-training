@@ -1,0 +1,8 @@
+package com.StockMarketCharting.CompanyService.service;
+
+import com.StockMarketCharting.CompanyService.model.Company;
+
+public interface CompanyService {
+	public Company addNewCompany(Company company);
+	public Iterable<Company> findAllCompany();
+}

@@ -1,0 +1,21 @@
+package com.StockMarketCharting.CompanyService.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+@ControllerAdvice
+public class CompanyControllerExceptionHandler {
+
+	public ResponseEntity<CompanyErrorResponse> handleException(CompanyNotFoundException cnfe){
+	
+		CompanyErrorResponse companyErrorResponse = new CompanyErrorResponse(
+														cnfe.getMessage(), 
+														HttpStatus.NOT_FOUND.value(), 
+														System.currentTimeMillis()
+														);
+		
+		return new ResponseEntity<>(companyErrorResponse, HttpStatus.NOT_FOUND);
+				
+	}
+}

@@ -1,0 +1,18 @@
+package com.StockMarketCharting.UserService;
+
+public class User {
+
+	private Integer userId;
+	
+	private String username;
+	
+	private String password;
+	
+	private String email;
+	
+	private UserType userType;
+	
+	private String mobileNulber;
+	
+	private boolean confirmed; 
+}

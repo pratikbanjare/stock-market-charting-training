@@ -1,0 +1,48 @@
+package com.StockMarketCharting.UserService.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.StockMarketCharting.UserService.dao.UserDao;
+import com.StockMarketCharting.UserService.model.User;
+
+@Service
+public class UserServiceImpl implements UsreService{
+
+	private UserDao userDao;
+	
+	public UserServiceImpl(UserDao userDao) {
+		super();
+		this.userDao = userDao;
+	}
+
+	@Override
+	public Iterable<User> findAllUsers() {
+		return userDao.findAll();
+	}
+
+	@Override
+	public Optional<User> findUserById(Integer userId) {
+		return userDao.findById(userId);
+	}
+
+	@Override
+	public Optional<User> findUserByName(String username) {
+		return userDao.findByName(username);
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User AddUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

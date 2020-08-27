@@ -1,0 +1,9 @@
+package com.StockMarketCharting.CompanyService.service;
+
+import com.StockMarketCharting.CompanyService.model.IpoDetail;
+
+public interface IpoService {
+	
+	public Iterable<IpoDetail> findAllIpos();
+
+}

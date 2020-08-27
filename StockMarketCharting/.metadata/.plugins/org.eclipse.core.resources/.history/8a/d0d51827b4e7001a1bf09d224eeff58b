@@ -1,0 +1,5 @@
+package com.StockMarketCharting.CompanyService.dao;
+
+public interface IpoDao {
+
+}

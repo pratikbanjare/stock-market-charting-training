@@ -1,0 +1,45 @@
+package com.StockMarketCharting.StockExchangeService.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.StockMarketCharting.StockExchangeService.dao.StockExchangeDao;
+import com.StockMarketCharting.StockExchangeService.model.StockExchange;
+
+@Service
+public class StockExchangeServiceImpl implements StockExchangeService{
+
+	private StockExchangeDao stockExchangeDao;
+	
+	public StockExchangeServiceImpl(StockExchangeDao stockExchangeDao) {
+		super();
+		this.stockExchangeDao = stockExchangeDao;
+	}
+
+	@Override
+	public Iterable<StockExchange> findAllStockExchanges() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<StockExchange> findStockExchangeById(Integer stockExchangeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<StockExchange> findStockExchangeByName(String stockExchangeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StockExchange addStockExchange(StockExchange stockExchange) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

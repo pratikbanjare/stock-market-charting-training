@@ -1,0 +1,27 @@
+package com.StockMarketCharting.CompanyService.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.StockMarketCharting.CompanyService.model.IpoDetail;
+import com.StockMarketCharting.CompanyService.service.IpoService;
+
+@RestController
+@RequestMapping("/api")
+public class IpoController {
+
+	private IpoService ipoService;
+
+	public IpoController(IpoService ipoService) {
+		super();
+		this.ipoService = ipoService;
+	}
+	
+	public ResponseEntity<Iterable<IpoDetail>> findAllIpos(){
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(ipoService.findAllIpos());
+	}
+}

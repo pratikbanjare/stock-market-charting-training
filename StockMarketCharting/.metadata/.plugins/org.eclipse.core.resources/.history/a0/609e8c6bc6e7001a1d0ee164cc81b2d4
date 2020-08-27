@@ -1,0 +1,5 @@
+package com.StockMarketCharting.StockPriceService.controller;
+
+public class StockPriceController {
+
+}

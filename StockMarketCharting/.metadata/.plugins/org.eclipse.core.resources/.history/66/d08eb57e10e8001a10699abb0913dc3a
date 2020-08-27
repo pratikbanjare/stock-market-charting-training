@@ -1,0 +1,22 @@
+package com.StockMarketCharting.UserService.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.StockMarketCharting.UserService.service.UserService;
+
+@RestController
+@RequestMapping(" /api")
+public class UserController {
+
+	private UserService userService;
+
+	public UserController(UserService userService) {
+		super();
+		this.userService = userService;
+	}
+	
+	
+	
+	
+}
