@@ -56,6 +56,8 @@ public class Company {
 	@JoinColumn(name = "company_id", nullable = true)
 	private List<Director> directors;
 	
-	
+	@OneToMany(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
+	@JoinColumn(name = "company_id",nullable = true)
+	private List<IpoDetail> ipoDetails;
 	
 }

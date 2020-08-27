@@ -27,9 +27,6 @@ public class IpoDetail {
 	@Column(name = "ipo_id")
 	private Integer ipoId;
 	
-	@Column(name = "company_name")
-	private String companyName;
-	
 	@Column(name = "exchange")
 	private String exchange;
 	
