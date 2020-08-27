@@ -1,0 +1,10 @@
+package com.StockMarketCharting.CompanyService.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.StockMarketCharting.CompanyService.model.Company;
+
+public interface CompanyServiceDao extends JpaRepository<Company, Integer>{
+
+	
+}

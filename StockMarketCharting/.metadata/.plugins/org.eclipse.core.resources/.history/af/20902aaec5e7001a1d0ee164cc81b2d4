@@ -1,0 +1,50 @@
+package com.StockMarketCharting.StockPriceService.service;
+
+import java.sql.Date;
+
+import org.springframework.stereotype.Service;
+
+import com.StockMarketCharting.StockPriceService.dao.StockPricingDao;
+import com.StockMarketCharting.StockPriceService.model.StockPrice;
+
+@Service
+public class StockPriceServiceImpl implements StockPriceService{
+
+	private StockPricingDao stockDao;
+		
+	public StockPriceServiceImpl(StockPricingDao stockDao) {
+		super();
+		this.stockDao = stockDao;
+	}
+
+	@Override
+	public Iterable<StockPrice> findByCompanyCode(String companyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<StockPrice> findByExchange(String exchange) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<StockPrice> findByDate(Date date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<StockPrice> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StockPrice addStockPrice(StockPrice stockPrice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

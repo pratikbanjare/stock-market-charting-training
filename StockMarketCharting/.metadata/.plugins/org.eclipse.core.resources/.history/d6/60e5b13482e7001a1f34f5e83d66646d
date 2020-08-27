@@ -1,0 +1,34 @@
+package com.StockMarketCharting.StockExchangeService.service;
+
+import java.util.Optional;
+
+import com.StockMarketCharting.StockExchangeService.model.StockExchange;
+
+public class StockExchangeServiceImpl implements StockExchangeService{
+
+	@Override
+	public Iterable<StockExchange> findAllStockExchanges() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<StockExchange> findStockExchangeById(Integer stockExchangeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<StockExchange> findStockExchangeByName(String stockExchangeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StockExchange addStockExchange(StockExchange stockExchange) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

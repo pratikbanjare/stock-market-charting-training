@@ -1,0 +1,8 @@
+package com.StockMarketCharting.CompanyService.model;
+
+public class Directors {
+	
+	private Integer durectorId;
+	private String directorName;
+
+}

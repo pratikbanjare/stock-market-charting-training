@@ -1,0 +1,18 @@
+package com.StockMarketCharting.StockPriceService.dao;
+
+import java.sql.Date;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.StockMarketCharting.StockPriceService.model.StockPrice;
+
+@Repository
+public interface StockPricingDao extends JpaRepository<StockPrice, Integer>{
+	
+	public Iterable<StockPrice> findByCompanyCode(String companyCode);
+	public Iterable<StockPrice> findByExchange(String exchange);
+	public Iterable<StockPrice> findByDate(Date date);
+	public StockPrice addStockPrice(StockPrice stockPrice);
+
+}

@@ -1,0 +1,63 @@
+package com.StockMarketCharting.UserService.controller;
+
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.StockMarketCharting.UserService.model.User;
+import com.StockMarketCharting.UserService.service.UserService;
+
+@RestController
+@RequestMapping(" /api")
+public class UserController {
+
+	private UserService userService;
+
+	public UserController(UserService userService) {
+		super();
+		this.userService = userService;
+	}
+	
+	@GetMapping("/users")
+	public ResponseEntity<Iterable<User>> findAllUsers() {
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(userService.findAllUsers());
+	}
+
+	@GetMapping("/users/id/{userId}")
+	public ResponseEntity<Optional<User>> findUserById(Integer userId) {
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(userService.findUserById(userId));
+	}
+
+	@GetMapping("/users/name/{username}")
+	public ResponseEntity<Optional<User>> findUserByName(String username) {
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(userService.findUserByName(username));
+	}
+
+	@PostMapping("/user/update")
+	public ResponseEntity<User> updateUser(User user) {
+		return ResponseEntity.
+				status(HttpStatus.OK).
+				body(userService.updateUser(user));
+	}
+
+	@PostMapping("/users/save")
+	public ResponseEntity<User> AddUser(User user) {
+		return ResponseEntity.
+				status(HttpStatus.CREATED).
+				body(userService.AddUser(user));
+	}
+
+	
+	
+}

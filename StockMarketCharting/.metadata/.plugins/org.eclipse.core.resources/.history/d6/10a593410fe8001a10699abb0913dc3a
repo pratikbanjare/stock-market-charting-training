@@ -1,0 +1,13 @@
+package com.StockMarketCharting.UserService.service;
+
+import java.util.Optional;
+
+import com.StockMarketCharting.UserService.model.User;
+
+public interface UsreService {
+	
+	public Iterable<User> findAllUsers();
+	public Optional<User> findUserById(Integer userId);
+	public Optional<User> findUserByName(String username);
+	
+}

@@ -1,0 +1,54 @@
+package com.StockMarketCharting.StockPriceService.controller;
+
+import java.sql.Date;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.StockMarketCharting.StockPriceService.model.StockPrice;
+import com.StockMarketCharting.StockPriceService.service.StockPriceService;
+
+@RestController
+@RequestMapping("/api")
+public class StockPriceController {
+	
+	private StockPriceService priceService;
+
+	public StockPriceController(StockPriceService priceService) {
+		super();
+		this.priceService = priceService;
+	}
+	
+	public ResponseEntity<Iterable<StockPrice>> findByCompanyCode(String companyCode){
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(priceService.findByCompanyCode(companyCode));
+	}
+	
+	public ResponseEntity<Iterable<StockPrice>> findByExchange(String exchange){
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(priceService.findByExchange(exchange));
+	}
+	
+	public ResponseEntity<Iterable<StockPrice>> findByDate(Date date){
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(priceService.findByDate(date));
+	}
+	
+	public ResponseEntity<Iterable<StockPrice>> findAll(){
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(priceService.findAll());
+	}
+	
+	public ResponseEntity<StockPrice> addStockPrice(StockPrice priceEntity){
+		return ResponseEntity.
+				status(HttpStatus.CREATED).
+				body(priceService.addStockPrice(priceEntity));
+	}
+
+}

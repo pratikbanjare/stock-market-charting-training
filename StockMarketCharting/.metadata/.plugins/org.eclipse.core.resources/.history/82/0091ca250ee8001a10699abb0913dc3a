@@ -1,0 +1,5 @@
+package com.StockMarketCharting.UserService.dao;
+
+public interface UserDao {
+
+}

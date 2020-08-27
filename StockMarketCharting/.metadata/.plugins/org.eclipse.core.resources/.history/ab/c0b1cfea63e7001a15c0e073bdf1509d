@@ -1,0 +1,29 @@
+package com.StockMarketCharting.CompanyService.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.StockMarketCharting.CompanyService.model.Company;
+import com.StockMarketCharting.CompanyService.service.CompanyService;
+
+@RestController
+@RequestMapping("/api")
+public class CompanyController {
+	
+	private CompanyService companyService;
+
+	public CompanyController(CompanyService companyService) {
+		super();
+		this.companyService = companyService;
+	}
+	
+	public ResponseEntity<Iterable<Company>> findAllCompany(){
+		return new ResponseEntity<Iterable<Company>>(
+				companyService.findAllCompany(),
+				HttpStatus.FOUND
+				);
+	}
+
+}

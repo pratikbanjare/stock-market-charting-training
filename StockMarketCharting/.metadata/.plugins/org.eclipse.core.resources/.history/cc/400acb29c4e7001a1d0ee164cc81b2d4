@@ -1,0 +1,11 @@
+package com.StockMarketCharting.StockPriceService;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.StockMarketCharting.StockPriceService.model.StockPrice;
+
+@Repository
+public interface StockPricingDao extends JpaRepository<StockPrice, Integer>{
+
+}

@@ -1,0 +1,9 @@
+package com.StockMarketCharting.StockPriceService.service;
+
+import com.StockMarketCharting.StockPriceService.model.StockPrice;
+
+public interface StockPriceService {
+	public Iterable<StockPrice> findByCompanyCode(String companyCode);
+	public Iterable<StockPrice> findByExchange(String exchange);
+
+}

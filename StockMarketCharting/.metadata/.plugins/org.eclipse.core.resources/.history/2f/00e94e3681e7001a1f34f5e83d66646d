@@ -1,0 +1,8 @@
+package com.StockMarketCharting.StockExchangeService;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+@Repository
+public interface StockExchangeDao extends JpaRepository<StockExchange, Integer>{
+
+}

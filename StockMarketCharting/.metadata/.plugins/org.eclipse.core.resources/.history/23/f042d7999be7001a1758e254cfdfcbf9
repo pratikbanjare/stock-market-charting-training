@@ -1,0 +1,38 @@
+package com.StockMarketCharting.CompanyService.service;
+
+import javax.transaction.Transactional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import com.StockMarketCharting.CompanyService.dao.CompanyDao;
+import com.StockMarketCharting.CompanyService.model.Company;
+import com.StockMarketCharting.CompanyService.shared.CompanyResponse;
+
+@Service
+public class CompanyServiceImpl implements CompanyService{
+
+	private CompanyDao companyDao;
+	private ModelMapper mmodelMapper;
+	public CompanyServiceImpl(CompanyDao companyDao, ModelMapper modelMapper) {
+		super();
+		this.companyDao = companyDao;
+		this.mmodelMapper = modelMapper;
+	}
+
+	@Override
+	@Transactional
+	public Company addNewCompany(Company company) {
+		return companyDao.save(company);
+	}
+
+	@Override
+	@Transactional
+	public Iterable<CompanyResponse> findAllCompany() {
+		
+		
+		return null;
+	}
+		
+	
+}

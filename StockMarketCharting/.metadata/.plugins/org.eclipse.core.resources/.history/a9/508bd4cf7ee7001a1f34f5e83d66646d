@@ -1,0 +1,15 @@
+package com.StockMarketCharting.StockExchangeService.model;
+
+public class StockExchange {
+	
+	private Integer stockExchangeId;
+	
+	private String stockExchangeName;
+	
+	private String brief;
+	
+	private String address;
+	
+	private String remarks;
+
+}

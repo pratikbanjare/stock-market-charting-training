@@ -1,0 +1,5 @@
+package com.StockMarketCharting.UserService.service;
+
+public interface UsreService {
+
+}

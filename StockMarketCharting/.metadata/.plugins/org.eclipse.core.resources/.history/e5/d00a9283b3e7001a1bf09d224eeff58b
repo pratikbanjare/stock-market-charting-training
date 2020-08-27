@@ -1,0 +1,30 @@
+package com.StockMarketCharting.CompanyService.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class IpoDetail {
+	
+	private Integer ipoId;
+	
+	private String companyName;
+	
+	private String exchange;
+	
+	private double sharePrice;
+	
+	private double numberOfShares;
+	
+	private Date date;
+}

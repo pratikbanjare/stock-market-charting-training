@@ -1,0 +1,16 @@
+package com.StockMarketCharting.CompanyService.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.StockMarketCharting.CompanyService.model.IpoDetail;
+
+@Repository
+public interface IpoDao extends JpaRepository<IpoDetail, Integer>{
+
+	@Query(value = "select * from ipo_details d ")
+	Iterable<IpoDetail> findByExchange(String exchange);
+	Iterable<IpoDetail> findbyCompanyName(String companyName);
+
+}

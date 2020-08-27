@@ -1,0 +1,32 @@
+package com.StockMarketCharting.CompanyService.model;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Company {
+	
+	private Integer companyId;
+	
+	private String companyName;
+	
+	private Long turnover;
+
+	private String ceo;
+	
+	private List<String> directors;
+	
+	private String writeup;
+
+}
+
