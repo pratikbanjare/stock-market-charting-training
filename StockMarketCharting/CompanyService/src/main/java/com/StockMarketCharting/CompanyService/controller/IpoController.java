@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.StockMarketCharting.CompanyService.model.IpoDetail;
 import com.StockMarketCharting.CompanyService.service.IpoService;
+import com.StockMarketCharting.CompanyService.shared.IpoRequest;
 
 @RestController
 @RequestMapping("/api")
@@ -18,6 +19,7 @@ public class IpoController {
 
 	private IpoService ipoService;
 
+	
 	public IpoController(IpoService ipoService) {
 		super();
 		this.ipoService = ipoService;
@@ -30,11 +32,11 @@ public class IpoController {
 				body(ipoService.findAllIpos());
 	}
 	
-	@GetMapping("/ipos/company_name/{companyName}")
-	public ResponseEntity<Iterable<IpoDetail>> findByCompanyName(@PathVariable String companyName){
+	@GetMapping("/ipos/company_id/{companyId}")
+	public ResponseEntity<Iterable<IpoDetail>> findByCompanyId(@PathVariable Integer companyId){
 		return ResponseEntity.
 				status(HttpStatus.FOUND).
-				body(ipoService.findIpoByCompanyName(companyName));
+				body(ipoService.findIpoByCompanyId(companyId));
 	}
 	
 	@GetMapping("/ipos/exchange/{exchange}")
@@ -45,9 +47,10 @@ public class IpoController {
 	}
 	
 	@PostMapping("/ipos")
-	public ResponseEntity<IpoDetail> addNewIpo(@RequestBody IpoDetail ipoDetail){
+	public ResponseEntity<IpoDetail> addNewIpo(@RequestBody IpoRequest ipoRequest){		
+		
 		return ResponseEntity.
 				status(HttpStatus.CREATED).
-				body(ipoService.addIpo(ipoDetail));
+				body(ipoService.addIpo(ipoRequest));
 	}
 }

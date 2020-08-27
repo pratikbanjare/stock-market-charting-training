@@ -1,22 +1,29 @@
 package com.StockMarketCharting.CompanyService.service;
 
+import java.lang.reflect.Type;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
 import com.StockMarketCharting.CompanyService.dao.IpoDao;
 import com.StockMarketCharting.CompanyService.model.IpoDetail;
+import com.StockMarketCharting.CompanyService.shared.IpoRequest;
 
 @Service
 public class IpoServiceImpl implements IpoService{
 	
 	private IpoDao ipoDao;
+	private ModelMapper modelMapper;
 
-	public IpoServiceImpl(IpoDao ipoDao) {
+	public IpoServiceImpl(IpoDao ipoDao, ModelMapper modelMapper) {
 		super();
 		this.ipoDao = ipoDao;
+		this.modelMapper = modelMapper;
 	}
 
 	@Override
@@ -33,8 +40,8 @@ public class IpoServiceImpl implements IpoService{
 
 	@Override
 	@Transactional
-	public Iterable<IpoDetail> findIpoByCompanyName(String companyName) {
-		return ipoDao.findbyCompanyName(companyName);
+	public Iterable<IpoDetail> findIpoByCompanyId(Integer companyId) {
+		return ipoDao.findbyCompanyName(companyId);
 	}
 
 	@Override
@@ -45,7 +52,12 @@ public class IpoServiceImpl implements IpoService{
 
 	@Override
 	@Transactional
-	public IpoDetail addIpo(IpoDetail ipo) {
-		return ipoDao.save(ipo);
+	public IpoDetail addIpo(IpoRequest ipo) {
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		Type obj = new TypeToken<IpoDetail> () {}.getType();
+		IpoDetail ipoDetail = modelMapper.map(ipo, obj);
+		ipoDetail = ipoDao.save(ipoDetail);
+		ipoDao.addForeignKey(ipo.getCompanyId(), ipoDetail.getIpoId());
+		return ipoDetail;
 	}	
 }
