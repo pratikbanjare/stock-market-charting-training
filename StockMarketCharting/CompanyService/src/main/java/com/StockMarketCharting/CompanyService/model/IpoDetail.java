@@ -38,4 +38,5 @@ public class IpoDetail {
 	
 	@Column(name = "open_time")
 	private Timestamp openTime;
+	
 }
