@@ -1,0 +1,69 @@
+package com.StockMarketCharting.UserService.controller;
+
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.StockMarketCharting.UserService.model.User;
+import com.StockMarketCharting.UserService.model.UserType;
+import com.StockMarketCharting.UserService.service.UserService;
+
+@RestController
+@RequestMapping("/api")
+public class UserController {
+
+	private UserService userService;
+
+	public UserController(UserService userService) {
+		super();
+		this.userService = userService;
+	}
+	
+	@GetMapping("/users")
+	public ResponseEntity<Iterable<User>> findAllUsers() {
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(userService.findAllUsers());
+	}
+
+	@GetMapping("/users/id/{userId}")
+	public ResponseEntity<Optional<User>> findUserById(@PathVariable Integer userId) {
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(userService.findUserById(userId));
+	}
+
+	@GetMapping("/users/name/{username}")
+	public ResponseEntity<Optional<User>> findUserByName(@PathVariable String username) {
+		return ResponseEntity.
+				status(HttpStatus.FOUND).
+				body(userService.findUserByName(username));
+	}
+
+	@PostMapping("/users/update")
+	public ResponseEntity<User> updateUser(@RequestBody User user) {
+		return ResponseEntity.
+				status(HttpStatus.OK).
+				body(userService.updateUser(user));
+	}
+
+	@PostMapping("/users")
+	public ResponseEntity<User> AddUser(@RequestBody User user) {
+		user.setUserType(UserType.REGULAR);
+		System.out.println(user.getEmailId());
+		
+		return new ResponseEntity<User>(
+				userService.AddUser(user),
+				HttpStatus.CREATED
+				);
+
+	}
+	
+}
