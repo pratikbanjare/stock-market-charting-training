@@ -1,0 +1,40 @@
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-ad-5"> 
+            <div class="page-title">  
+                <h2>Login to you account</h2>
+            </div>
+            
+            <form [formGroup]="loginForm"  (ngSubmit)="login()">
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="username" class="form-control" formControlName="username"> 
+                </div>
+                <div *ngIf="isValidInput('username')" class="alert alert-danger">
+                    <div *ngIf="loginForm.controls['username'].errors.required"> 
+                        Username is required.
+                    </div>
+                </div>
+               
+
+                <div class="form-group">
+                    <input type="text" name="password" placeholder="password" class="form-control" formControlName="userPassword">
+                </div>
+
+                <div *ngIf="isValidInput('userPassword')" class="alert alert-danger">
+                    <div *ngIf="loginForm.controls['userPassword'].errors.required"> 
+                        Password is required.
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-warning" value="login" [disabled]='!loginForm.valid'>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+</div>
