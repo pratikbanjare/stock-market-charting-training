@@ -1,0 +1,69 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-ad-5">
+            <div class="page-title">
+                <h2>Register</h2>-
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)='register()' > 
+                <div class="form-group">
+                    <input type="text" placeholder="username"  class="form-control" formControlName="username" >  
+                </div>
+
+                <div *ngIf="isValidInput('username')" class="alert alert-danger">
+                    <div *ngIf="registerForm.controls['username'].errors.required">
+                        username is required
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input type="text" placeholder="password"  class="form-control" formControlName="userPassword"> 
+                </div>
+                <div *ngIf="isValidInput('userPassword')" class="alert alert-danger">
+                    <div *ngIf="registerForm.controls['userPassword'].errors.required">
+                        password is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" placeholder ="email@source.com" class="form-control" formControlName="emailId">
+                </div>
+                <div *ngIf="isValidInput('emailId')" class="alert alert-danger">
+                    <div *ngIf="registerForm.controls['emailId'].errors.required" >
+                        email id is required
+                    </div>
+                    <div *ngIf="registerForm.controls['emailId'].errors.pattern">
+                        Invalid email id
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" placeholder="1234567890" class="form-control" formControlName="mobileNumber">
+                </div>
+                <div *ngIf="isValidInput('mobileNumber')" class="alert alert-danger">
+                   
+                    <div *ngIf="registerForm.controls['mobileNumber'].errors.pattern">
+                        Invalid mobile number
+                    </div>
+
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn default btn-danger" [disabled]='!registerForm.valid'>
+                </div>
+                
+                
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
