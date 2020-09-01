@@ -7,13 +7,17 @@ import { RegisterComponent } from './components/register/register.component';
 
 import { RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CompanySearchComponent } from './components/company-search/company-search.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    CompanySearchComponent,
+    
   ],
   imports: [
     BrowserModule,
