@@ -4,9 +4,11 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,14 +34,15 @@ public class UserController {
 				status(HttpStatus.FOUND).
 				body(userService.findAllUsers());
 	}
-
+	
 	@GetMapping("/users/id/{userId}")
 	public ResponseEntity<Optional<User>> findUserById(@PathVariable Integer userId) {
 		return ResponseEntity.
 				status(HttpStatus.FOUND).
 				body(userService.findUserById(userId));
 	}
-
+	
+	
 	@GetMapping("/users/name/{username}")
 	public ResponseEntity<Optional<User>> findUserByName(@PathVariable String username) {
 		return ResponseEntity.
@@ -47,7 +50,7 @@ public class UserController {
 				body(userService.findUserByName(username));
 	}
 
-	@PostMapping("/users/update")
+	@PutMapping("/users/update")
 	public ResponseEntity<User> updateUser(@RequestBody User user) {
 		return ResponseEntity.
 				status(HttpStatus.OK).
@@ -64,6 +67,11 @@ public class UserController {
 				HttpStatus.CREATED
 				);
 
+	}
+	
+	@GetMapping("/hello")
+	public String testing_user () {
+		return "hello user";
 	}
 	
 }

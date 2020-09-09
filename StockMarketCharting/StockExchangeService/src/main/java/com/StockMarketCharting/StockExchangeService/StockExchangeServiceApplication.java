@@ -3,11 +3,13 @@ package com.StockMarketCharting.StockExchangeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 import com.StockMarketCharting.StockExchangeService.dao.StockExchangeDao;
 import com.StockMarketCharting.StockExchangeService.model.StockExchange;
 
 @SpringBootApplication
+//@EnableEurekaClient
 public class StockExchangeServiceApplication implements CommandLineRunner{
 
 	private StockExchangeDao dao;

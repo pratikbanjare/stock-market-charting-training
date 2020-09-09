@@ -1,0 +1,1 @@
+insert into user (user_id, username, user_password, email_id, user_type, mobile_number, confirmed) values (1, 'pratik', 'banjare', 'p.b@gm.com',0, '1234567890', true );
