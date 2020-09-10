@@ -1,21 +1,28 @@
 <p>company-search works!</p>
+<div class="container">  
+    <form >
+        <table class="table">
+            <tr>
+                <td>
+                    <input type="text" placeholder="company"  [(ngModel)]="companyName" name="companyName">
+                </td>
+                <td>
+                    <input type="date"  [(ngModel)]="date1"  name="date1">
+                </td>
+                <td>
+                    <input type="date"  [(ngModel)]="date2" name="date2">
+                </td>
+                <td>
+                    <input type="submit" value="Search" (click)="companyStock()" >
+                </td>
+            </tr>
+        </table>
+    </form>
 
-<form >
+    <div class="card">
+        <div *ngIf="clicked" >
+            
+        </div>
+    </div>
 
-    <table>
-        <tr>
-            <td>
-                <input type="text" placeholder="company" class="form-control" formControlName="companyName" >
-            </td>
-            <td>
-                <input type="date" class="form-control" formControlName="dateFrom">
-            </td>
-            <td>
-                <input type="date" class="form-control" formControlName="dateTo">
-            </td>
-            <td>
-                <input type="submit" value="Search">
-            </td>
-        </tr>
-    </table>
-</form>
+</div>

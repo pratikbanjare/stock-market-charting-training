@@ -8,6 +8,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CompanySearchComponent } from './components/company-search/company-search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AllUsersComponent } from './components/all-users/all-users.component';
 
 
 
@@ -17,13 +19,15 @@ import { CompanySearchComponent } from './components/company-search/company-sear
     LoginPageComponent,
     RegisterComponent,
     CompanySearchComponent,
+    AllUsersComponent,
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

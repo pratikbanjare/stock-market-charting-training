@@ -9,7 +9,7 @@ import com.StockMarketCharting.StockExchangeService.dao.StockExchangeDao;
 import com.StockMarketCharting.StockExchangeService.model.StockExchange;
 
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
 public class StockExchangeServiceApplication implements CommandLineRunner{
 
 	private StockExchangeDao dao;

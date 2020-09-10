@@ -3,6 +3,7 @@ package com.StockMarketCharting.CompanyService.controller;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class CompanyController {
 		this.companyService = companyService;
 	}
 	
-	@GetMapping("/company")
+	@GetMapping(value = "/company", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Iterable<CompanyResponse>> findAllCompany()
 	{
 		return ResponseEntity.
@@ -59,7 +60,7 @@ public class CompanyController {
 				body(cr);
 	}
 	
-	@GetMapping("/company/name/{companyName}")
+	@GetMapping(value = "/company/name/{companyName}")
 	public ResponseEntity<CompanyResponse> findByCompanyName(@PathVariable String companyName) throws CompanyNotFoundException
 	{
 		CompanyResponse cr = companyService.findByCompanyName(companyName);
@@ -72,5 +73,11 @@ public class CompanyController {
 				status(HttpStatus.FOUND).
 				body(cr);
 	}
+	
+	@GetMapping ("/hello") 
+	public String testing_controller () {
+		return "Hello company!!!";
+	}
+	
 
 }

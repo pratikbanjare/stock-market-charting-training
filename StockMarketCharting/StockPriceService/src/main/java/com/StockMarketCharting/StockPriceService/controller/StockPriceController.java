@@ -1,6 +1,6 @@
 package com.StockMarketCharting.StockPriceService.controller;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

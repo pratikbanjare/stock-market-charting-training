@@ -8,22 +8,26 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class CompanySearchComponent implements OnInit {
 
-  companySearch : FormGroup;
-  constructor(private formBuilder : FormBuilder) {  }
+  companyName :string;
+  date1 : Date;
+  date2: Date;
+  clicked : boolean;
+  arr: number[] = [1,2,3,4];
+  constructor() {  }
 
   ngOnInit(): void {
     this.initForm();
+    
   }
 
   initForm() : void{
-    this.companySearch = this.formBuilder.group({
-      companyName : '',
-      dateFrom : '',
-      dataTo : ''
-    });
-
+    
   }
   companyStock() : void {
-    console.log(this.companySearch.value);
+    console.log(this.companyName);
+    console.log(this.date1);
+    console.log(this.date2);
+    this.clicked = true;   
+    
   }
 }

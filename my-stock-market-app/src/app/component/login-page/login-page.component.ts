@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder,  Validators } from '@angular/forms';
-
+import  {User} from '../../models/user';
+import { UserService } from '../../services/user.service'
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -9,10 +10,9 @@ import { FormGroup, FormControl, FormBuilder,  Validators } from '@angular/forms
 export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
- 
-  constructor(private formBuilder : FormBuilder) {
-
-
+  user : User;
+  
+  constructor(private formBuilder : FormBuilder, private service: UserService) {
   }
 
   ngOnInit(): void {
@@ -24,6 +24,10 @@ export class LoginPageComponent implements OnInit {
       userPassword : ['', Validators.required],
       username : ['', Validators.required]
     });
+
+    this.service.getHello ().subscribe (data => {
+      console.log(data);
+    })
   }
 
   isValidInput(fieldName) : boolean {
@@ -34,6 +38,11 @@ export class LoginPageComponent implements OnInit {
 
   login() : void{
     console.log(this.loginForm.value);
+    this.service.getUserByName( 'pratik' ).subscribe (data => {
+      console.log(data);  
+    });
+    
+
   }
 
 }
