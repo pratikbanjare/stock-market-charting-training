@@ -59,5 +59,16 @@ public class Company {
 	@OneToMany(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
 	@JoinColumn(name = "company_id",nullable = true)
 	private List<IpoDetail> ipoDetails;
+
+	public Company(Integer companyId, String companyName, Long turnover, String ceo, String writeup,
+			String companyCode) {
+		super();
+		this.companyId = companyId;
+		this.companyName = companyName;
+		this.turnover = turnover;
+		this.ceo = ceo;
+		this.writeup = writeup;
+		this.companyCode = companyCode;
+	}
 	
 }

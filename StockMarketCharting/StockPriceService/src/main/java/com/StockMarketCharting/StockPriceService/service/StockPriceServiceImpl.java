@@ -1,6 +1,6 @@
 package com.StockMarketCharting.StockPriceService.service;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.stereotype.Service;
 

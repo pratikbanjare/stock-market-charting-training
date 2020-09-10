@@ -1,0 +1,35 @@
+<div class="page-title"> 
+   <h2> List all users    </h2>
+</div>
+
+<div class="container">
+    <table class="table" >
+        <tr >
+            
+            <th>
+                Username
+            </th>
+            <th >
+                email
+            </th>
+            <th > 
+                phoneNumber
+            </th>
+            
+        </tr>
+
+        <tr *ngFor="let u of users" >
+            <td >
+                {{u.username}}
+            </td>
+            <td >
+                {{u.emailId}}
+            </td>
+            <td >
+                {{u.mobileNumber}}
+            </td>
+            
+        </tr>
+
+    </table>
+</div>

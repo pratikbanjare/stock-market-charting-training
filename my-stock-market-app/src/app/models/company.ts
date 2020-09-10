@@ -1,3 +1,5 @@
+import { IpoDetail } from './ipo-detail';
+
 export class Company {
     companyId : number;
     companyName: string;
@@ -7,6 +9,6 @@ export class Company {
     companyCode: string;
     exchanges: string[];
     directors: string[];
-    ipoDetails: string[];
+    ipoDetails: IpoDetail[];
 
 }
